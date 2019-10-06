@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>URL shortener</title>
+ </head>
+ <body>
+  <form method="POST" action="/">
+   URL to short: <input type="text" name="url" required/>
+   <input type="submit" value="Submit" name="Submit"/>
+  </form>
+  {% if url %}
+  You can use {{url}}
+  {% endif %}
+ </body>
+</html>
