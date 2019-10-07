@@ -23,8 +23,7 @@ def get_full_url(short_url):
     return full_url
 
 def create_short_url(url):
-    length = random.randrange(5, 10)
-    url_id = str(uuid.uuid4())[:length]
+    url_id = str(uuid.uuid4()).replace('-', '_')[:6]
     return url_id
 
 def get_address(short_url):
