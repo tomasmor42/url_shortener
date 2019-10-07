@@ -1,5 +1,7 @@
 import os
 import tempfile
+import string
+
 import pytest
 from app.models import db
 from app import create_app
@@ -27,14 +29,18 @@ def app():
 def client(app):
     return app.test_client()
 
-@pytest.fixture    
+@pytest.fixture
 def base_url(app):
     return 'http://' + app.config.get('HOST') + ":" + app.config.get('PORT')
-    
+
 @pytest.fixture
 def post_url(base_url):
-    return  base_url + "/api"
+    return base_url + "/shorten"
 
 @pytest.fixture
 def redirect_url(base_url):
-    return   base_url+ "/api"
+    return base_url
+
+@pytest.fixture
+def allowed_symbols():
+    return string.digits + string.ascii_letters + '_'
